@@ -1,0 +1,124 @@
+
+/* The following would make the fonts in the Archives pages consistent with the rest of the website technically (although I think the inconsistent font is more consistent in terms of feel) */
+/**
+
+* {
+    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+.nav-link {
+     font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+
+/******************************************************************************************************************/
+
+
+
+/* Highlight */
+
+::selection {
+    background: #fed136;
+    text-shadow: none;
+}
+
+/* Nav Changes to fit main page */
+
+#mainNav {
+    background-color: #212529;
+}
+
+#mainNav .navbar-toggler, #mainNavQsection .navbar-toggler {
+    font-size: 12px;
+    right: 0;
+    padding: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0;
+    background-color: #fed136;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+#mainNav .navbar-brand, #mainNavQsection .navbar-brand {
+    color: #fed136;
+    font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover, #mainNavQsection .navbar-brand.active, #mainNavQsection .navbar-brand:active, #mainNavQsection .navbar-brand:focus, #mainNavQsection .navbar-brand:hover {
+    color: #fec503
+}
+
+#mainNav .navbar-nav .nav-item .nav-link, #mainNavQsection .navbar-nav .nav-item .nav-link {
+    font-size: 90%;
+    font-weight: 400;
+    padding: .75em 0;
+    letter-spacing: 1px;
+    color: #fff;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNavQsection .navbar-nav .nav-item .nav-link.active, #mainNavQsection .navbar-nav .nav-item .nav-link:hover {
+    color: #fed136
+}
+
+@media (min-width: 992px) {
+    #mainNav, #mainNavQsection {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        transition: padding-top .3s, padding-bottom .3s;
+        border: none;
+        background-color: transparent
+    }
+
+    #mainNav .navbar-brand, #mainNavQsection  .navbar-brand {
+        font-size: 1.75em;
+        transition: all .3s
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link, #mainNavQsection .navbar-nav .nav-item .nav-link {
+        padding: 1.1em 1em !important
+    }
+
+    #mainNav.navbar-shrink, #mainNavQsection .navbar-shrink{ /* changed a space here, in case it matters */
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #212529
+    }
+
+    #mainNav.navbar-shrink .navbar-brand, #mainNavQsection.navbar-shrink .navbar-brand {
+        font-size: 1.25em;
+        padding: 12px 0
+    }
+}
+
+/* Overriding bootstrap aesthetic with new bootstrap aesthetic */
+
+.navbar {
+    background-color: #212529 !IMPORTANT;
+}
+
+.blue {
+    color: #1a7ffb;
+}
+
+.mr-3, .blue, .btn, .bg-warning, .bg-info, .bg-secondary, .bg-danger, .bg-primary, .font {
+    font-family: "Nunito Sans", Arial, sans-serif;
+    font-weight: 400;
+}
+
+.bg-warning, .bg-info, .bg-secondary, .bg-danger, .bg-primary {
+    font-weight: 700;
+}
+
+/*  */
+
+.min {
+    min-width: 150px;
+}
+
+.blue {
+    color: #1a80fb !important;
+}
+
+#greenA {
+    background-color: #228B22 !important;
+    border-color: #228B22 !important;
+}
