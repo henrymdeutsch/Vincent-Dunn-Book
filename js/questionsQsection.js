@@ -1,10 +1,10 @@
-var containerQsection = document.getElementById("containerQsection");
-var mainNavQsection = document.getElementById("mainNavQsection");
-var sp1Qsection = document.getElementById("spacer1Qsection");
-var sp2Qsection = document.getElementById("spacer2Qsection");
-var chaptersQuestionsQsection = document.getElementById("chaptersQuestionsQsection");
+let containerQsection = document.getElementById("containerQsection");
+let mainNavQsection = document.getElementById("mainNavQsection");
+let sp1Qsection = document.getElementById("spacer1Qsection");
+let sp2Qsection = document.getElementById("spacer2Qsection");
+let chaptersQuestionsQsection = document.getElementById("chaptersQuestionsQsection");
 
-var chapQsection = document.getElementById('chapter1Qsection');
+let chapQsection = document.getElementById('chapter1Qsection');
 chapQsection.style.display = "block";
 
 // none of this is used
@@ -15,7 +15,7 @@ function flexNavQsection() {
     //replace.innerHTML = currentlyToggled;
 
     // make horizontal nav that toggles between chapters and questions responsive
-    var widthOfChaptersQuestions = chaptersQuestionsQsection.clientWidth;
+    let widthOfChaptersQuestions = chaptersQuestionsQsection.clientWidth;
 
     if (widthOfChaptersQuestions > 455) {
         chaptersQuestionsQsection.style.paddingLeft = "60px";
@@ -33,7 +33,7 @@ function flexNavQsection() {
         chaptersQuestionsQsection.style.margin = "15px 0px 55px 0px";
         chaptersQuestionsQsection.style.minWidth = "270px";
 
-        var spacer = document.getElementById("spacerQsection");
+        let spacer = document.getElementById("spacerQsection");
         if (window.innerWidth < 420) {
             spacer.style.display = "inline-block";
         }
@@ -92,18 +92,18 @@ function switchBodies() {
 function goToChapter(chNum, stopNum) {
 
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent && false)) {
-        var chapterList = document.getElementsByClassName('tabcontentQsection');
-        for (var i = 0; i < chapterList.length; i++) {
+        let chapterList = document.getElementsByClassName('tabcontentQsection');
+        for (let i = 0; i < chapterList.length; i++) {
             chapterList[i].style.display = "none";
         }
 
-        var chap = document.getElementById('chapter' + chNum + 'Qsection');
+        let chap = document.getElementById('chapter' + chNum + 'Qsection');
         chap.style.display = "block";
 
         document.getElementById('ch' + chNum + 'stop' + stopNum).scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 
         // on phones, there needs to be a _parent level window that has a link at the top of the page back here.
-        //var myWindow = window.open('chaptersOnMobile.html', '_parent', 'height=9999, width=550, left=9999', true);
+        //let myWindow = window.open('chaptersOnMobile.html', '_parent', 'height=9999, width=550, left=9999', true);
 
         /*setTimeout(function() {
             //myWindow.scrollTo(0,1150);
@@ -118,7 +118,7 @@ function goToChapter(chNum, stopNum) {
     else {
 
         // on laptops and desktops, a new window should open to the right.
-        var myWindow = window.open('book2Chapters.html', '_blank', 'height=9999, width=550, left=9999', true);
+        let myWindow = window.open('book2Chapters.html', '_blank', 'height=9999, width=550, left=9999', true);
 
         // click on chapter number, and then find a way to scroll to Id reference.
 

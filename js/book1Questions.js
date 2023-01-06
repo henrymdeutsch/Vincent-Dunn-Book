@@ -1,4 +1,4 @@
-var entireBookString =
+let entireBookString =
     `CHAPTER 1 &&&
 1. Which one of the following is not a construction feature of a 2½-story dwelling that Firefighters must know about to survive?
 A. Open floor design horizontal fire spread danger
@@ -2596,7 +2596,7 @@ function occurrences(string, subString, allowOverlapping) {
     subString += "";
     if (subString.length <= 0) return (string.length + 1);
 
-    var n = 0,
+    let n = 0,
         pos = 0,
         step = allowOverlapping ? 1 : subString.length;
 
@@ -2612,26 +2612,26 @@ function occurrences(string, subString, allowOverlapping) {
 function getPageNum(currQuestionArr) {
 
     // used to return currQuestionArr[currQuestionArr.length - 2]; translation: that resolves to the (reference#) line of the current question, which was originally supposed to refer to the page number. However, I found I could just read the page number from the last line of the current question and so I could skip this.
-    var ansLine = currQuestionArr[currQuestionArr.length - 1];
-    var numWithSpace = ansLine.substring(ansLine.indexOf("page ") + 5);
+    let ansLine = currQuestionArr[currQuestionArr.length - 1];
+    let numWithSpace = ansLine.substring(ansLine.indexOf("page ") + 5);
     return numWithSpace.trim();
 }
 
 // Break up into chapters
-var chaptersArray = entireBookString.split('\n\n');
-var ch;             // a chapter
-var questions;      // num of questions in a given chapter
-var currQuestion;   // the current question as a string
-var currQuestionArr;    // the current question as an array
-var everything;     // a string that will hold everything to be put in html
-var numOfQuestions;
+let chaptersArray = entireBookString.split('\n\n');
+let ch;             // a chapter
+let questions;      // num of questions in a given chapter
+let currQuestion;   // the current question as a string
+let currQuestionArr;    // the current question as an array
+let everything;     // a string that will hold everything to be put in html
+let numOfQuestions;
 
 setTimeout(function() {
     displayChapter(0);
 }, 10);
 function displayChapter(c) {
-    var containersThingCopy = document.getElementsByClassName("relevantParagraph");
-    for (var i = 0; i < containersThingCopy.length; i++) {
+    let containersThingCopy = document.getElementsByClassName("relevantParagraph");
+    for (let i = 0; i < containersThingCopy.length; i++) {
         containersThingCopy[i].className = 'relevantParagraph';
     }
 
@@ -2644,7 +2644,7 @@ function displayChapter(c) {
     }, 50);
 
     // for each question, get the prompt, Answerchoices, and answer.
-    for (var q = 0; q < numOfQuestions; q++) {
+    for (let q = 0; q < numOfQuestions; q++) {
 
         // currQuestion now holds a string of the current question
         currQuestion = ch.substring( 0, ch.indexOf('page') ); //+ ch.substring( ch.indexOf('page'), ch.indexOf('\n') );
@@ -2663,9 +2663,9 @@ function displayChapter(c) {
 
                     <!-- the empty divs are to make the javascript easier - I'm able to use .children on the div to get the button & div in one piece. -->
                     <div class="options lead">`
-        var ansString = currQuestionArr[currQuestionArr.length -1];
-        var correctAns = ansString.substring(ansString.indexOf(" ")+1, ansString.indexOf(" ")+2,);
-        for (var o = 0; o < (currQuestionArr.length-4); o++) {
+        let ansString = currQuestionArr[currQuestionArr.length -1];
+        let correctAns = ansString.substring(ansString.indexOf(" ")+1, ansString.indexOf(" ")+2,);
+        for (let o = 0; o < (currQuestionArr.length-4); o++) {
             everything += `    <div>
                             <button onclick="styleButton('ch${c+1}q${q+1}o${o+1}'); updateDataTemporarily('ch${c+1}q${q+1}o${o+1}', 'ch${c+1}q${q+1}o${correctAns}');" id="ch${c+1}q${q+1}o${o+1}" class="option">
                                 <div class="fontAwesomeBullet">

@@ -3,11 +3,11 @@ function toggle() {
     $('#sidebar, #content').toggleClass('active');
 };
 
-//var htmlAndBody = document.getElementsByClassName("disableScrollingMaybe");
+//let htmlAndBody = document.getElementsByClassName("disableScrollingMaybe");
 
 // for testing purposes; make sure to replace its innerHTML in the flexNav function.
-//var replace = document.getElementById("replace");
-var currentlyToggled = false;
+//let replace = document.getElementById("replace");
+let currentlyToggled = false;
 
 function changeBodyTextOnToggle() {
     // switch the variable currentlyToggled
@@ -17,43 +17,43 @@ function changeBodyTextOnToggle() {
 }
 
 /* adjust spacer height and toggle icon visibility with screen width */
-var sp1 = document.getElementById("spacer1");
-var sp2 = document.getElementById("spacer2");
-var tog = document.getElementById("toggle");
-var mainNav = document.getElementById("mainNav");
-var proBooks = document.getElementById("proBooks");
-var container = document.getElementById("container");
-var menuAndLogo = document.getElementById("menuAndLogo");
-var chapters = document.getElementsByClassName("toggleOnMobile");
-var chaptersQuestions = document.getElementById("chaptersQuestions");
-var toggleHasBeenAdded = false;
-var onclickHasBeenAddedToBody2Images = false;
+let sp1 = document.getElementById("spacer1");
+let sp2 = document.getElementById("spacer2");
+let tog = document.getElementById("toggle");
+let mainNav = document.getElementById("mainNav");
+let proBooks = document.getElementById("proBooks");
+let container = document.getElementById("container");
+let menuAndLogo = document.getElementById("menuAndLogo");
+let chapters = document.getElementsByClassName("toggleOnMobile");
+let chaptersQuestions = document.getElementById("chaptersQuestions");
+let toggleHasBeenAdded = false;
+let onclickHasBeenAddedToBody2Images = false;
 
 /*on page load, make other tabs dissapear */
-var tabcontent = document.getElementsByClassName("tabcontent");
-/*for (var i = 0; i < tabcontent.length; i++) {
+let tabcontent = document.getElementsByClassName("tabcontent");
+/*for (let i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
 } Henry Deutsch */
 
-var chap = document.getElementById('chapter1');
+let chap = document.getElementById('chapter1');
 chap.style.display = "block";
 
 /* if user is on a mobile phone, make the font smaller & timer farther away */
-var bigText = document.getElementsByClassName("style1-big");
-var smallText = document.getElementsByClassName("style1-small");
+let bigText = document.getElementsByClassName("style1-big");
+let smallText = document.getElementsByClassName("style1-small");
 
-var chapterHeaders = Array.from(document.getElementsByClassName('paragraph-header'));
+let chapterHeaders = Array.from(document.getElementsByClassName('paragraph-header'));
 
 // adjusts paragraph indentation on chapter headers
 function adjustParagraphIndentation() {
 
     if (window.innerWidth < 500) {
-        for (var i = 0; i < chapterHeaders.length; i++) {
+        for (let i = 0; i < chapterHeaders.length; i++) {
             chapterHeaders[i].style.textIndent = '0';
         }
     }
     else if (window.innerWidth > 500) {
-        for (var i = 0; i < chapterHeaders.length; i++) {
+        for (let i = 0; i < chapterHeaders.length; i++) {
             chapterHeaders[i].style.textIndent = '40px';
         }
     }
@@ -64,10 +64,10 @@ window.onresize = adjustParagraphIndentation;
 addOnclickEnlarge();
 function addOnclickEnlarge() {
     // this adds the onclick to all the images so I don't have to manually. Just give it the class chapter-image and vuala.
-    var images = Array.from(document.getElementsByClassName('chapter-image'));
-    var imageURL;
-    var fullURL;
-    for (var i = 0; i < images.length; i++) {
+    let images = Array.from(document.getElementsByClassName('chapter-image'));
+    let imageURL;
+    let fullURL;
+    for (let i = 0; i < images.length; i++) {
         fullURL = ""+images[i].src;
         imageURL = fullURL.substring(fullURL.indexOf("images"));
         images[i].setAttribute("onclick", "popupImage('"+ imageURL +"')"); // images/ch1/ch1p2.png   popupImage(imageURL)
@@ -92,7 +92,7 @@ window.onresize = adjustParagraphIndentation;
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
-    for (var x = 0; x < bigText.length; x++) {
+    for (let x = 0; x < bigText.length; x++) {
         //bigText[x].style.className = "style2-big";
         /*bigText[x].style.fontWeight = "400";
         bigText[x].style.fontWeight = "40px";
@@ -107,7 +107,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
             bigText[x].style.lineHeight = "45px";
         }
     }
-    for (var z = 0; z < smallText.length; z++) {
+    for (let z = 0; z < smallText.length; z++) {
         //smallText[z].className = "style2-small";
         bigText[x].style.fontWeight = "600";
         bigText[x].style.fontWeight = "25px";
@@ -121,7 +121,7 @@ function flexNav() {
 
     // Was used to make shorter horizontal nav that toggles between chapters and questions responsive. In the end I used a css media query instead, but kept this code just in case.
 
-    var widthOfChaptersQuestions = chaptersQuestions.clientWidth;
+    let widthOfChaptersQuestions = chaptersQuestions.clientWidth;
 
     if (widthOfChaptersQuestions > 455) {
         chaptersQuestions.style.paddingLeft = "60px";
@@ -139,7 +139,7 @@ function flexNav() {
         chaptersQuestions.style.margin = "15px 0px 55px 0px";
         chaptersQuestions.style.minWidth = "270px";
 
-        var spacer = document.getElementById("spacer");
+        let spacer = document.getElementById("spacer");
         if (window.innerWidth < 420) {
             spacer.style.display = "inline-block";
         }
@@ -155,14 +155,14 @@ function flexNav() {
 
     if (window.innerWidth >= 769) {
         if (toggleHasBeenAdded) {
-            for (var i = 0; i < chapters.length; i++) {
+            for (let i = 0; i < chapters.length; i++) {
                 chapters[i].removeEventListener('click', toggle);
             }
             toggleHasBeenAdded = false;
         }
     }
     else if (window.innerWidth >= 295) {
-        for (var i = 0; i < chapters.length; i++) {
+        for (let i = 0; i < chapters.length; i++) {
             //chapters[i].setAttribute("onclick", "toggle()");
             chapters[i].addEventListener('click', toggle);
         }
@@ -195,29 +195,29 @@ window.onresize = flexNav;
 function openChapter(listNum, chapter) {
 
     // Get all elements with class="tabcontent" and hide them, then show the right one.
-    for (var i = 0; i < tabcontent.length; i++) {
+    for (let i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    var chap = document.getElementById(chapter);
+    let chap = document.getElementById(chapter);
     chap.style.display = "block";
 
     // Get all elements with class="tablinks" and remove the class "active", then add it on the right one.
-    var tablinks = document.getElementsByClassName("list-item-li");
+    let tablinks = document.getElementsByClassName("list-item-li");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    var listItem = document.getElementById(listNum);
+    let listItem = document.getElementById(listNum);
     listItem.className += " active";
 
     // Show the current tab, and add an "active" class to the link that opened the tab
     //document.getElementById(chapter).style.display = "block";
     //
 }
-//var myWindow;
+//let myWindow;
 
 function switchBodies() {
-    var body1 = document.getElementById('body1');
-    var body2 = document.getElementById('body2');
+    let body1 = document.getElementById('body1');
+    let body2 = document.getElementById('body2');
 
     if (body1.style.display === "none") {
         body1.style.display = "block"; body1.style.visibility = "visible"; body1.style.position = "static"; body1.style.top = "0"; body1.style.opacity = "100%";
@@ -242,33 +242,33 @@ function openChaptersWindow(chNum, stopNum) {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         switchBodies();
         // on phones, there needs to be a _parent level window that has a link at the top of the page back here.
-        var chapterList = document.getElementsByClassName('tabcontentQsection');
-        /*for (var i = 0; i < chapterList.length; i++) {
+        let chapterList = document.getElementsByClassName('tabcontentQsection');
+        /*for (let i = 0; i < chapterList.length; i++) {
             chapterList[i].style.display = "none";
         }  will prob have to set this back Henry Deutsch*/
 
         // make sure each chapter is closed
-        for (var i= 1; i <= 27; i++) {
-            var eachChap = document.getElementById('chapter' + i + 'Qsection');
+        for (let i= 1; i <= 27; i++) {
+            let eachChap = document.getElementById('chapter' + i + 'Qsection');
             eachChap.style.display = "none";
         }
 
         // then open the right one
-        var chap = document.getElementById('chapter' + chNum + 'Qsection');
+        let chap = document.getElementById('chapter' + chNum + 'Qsection');
         chap.style.display = "block";
 
         // there's no need for a timer on mobile because you're not loading a new page.
         //                                        'ch' + chNum + 'page' + stopNum
-        var el = document.getElementById('page' + stopNum);
+        let el = document.getElementById('page' + stopNum);
         el.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-        /*for (var i = 0; i < Array.from(el.children).length; i++) {
+        /*for (let i = 0; i < Array.from(el.children).length; i++) {
             el.children[i].innerHTML = "<span class='highlight'>" + el.children[i].innerHTML + "</span>";
         } */
     }
     else {
 
         // on laptops and desktops, a new window should open to the right.
-        var myWindow = window.open('chapters.html', '_blank', 'height=9999, width=550, left=9999', true);
+        let myWindow = window.open('chapters.html', '_blank', 'height=9999, width=550, left=9999', true);
 
 
         setTimeout(load, 500);
@@ -281,13 +281,13 @@ function openChaptersWindow(chNum, stopNum) {
         function load() {
             //myWindow.scrollTo(0,1150);
             /*
-            var el = myWindow.document.getElementById('ch' + chNum + 'stop' + stopNum);
-            for (var i = 0; i < Array.from(el.children).length; i++) {
+            let el = myWindow.document.getElementById('ch' + chNum + 'stop' + stopNum);
+            for (let i = 0; i < Array.from(el.children).length; i++) {
                 el.children[i].innerHTML = "<span class='highlight'>" + el.children[i].innerHTML + "</span>";
             }
             */
             //                                                  'ch' + chNum + 'page' + stopNum
-            var el = myWindow.document.getElementById('page' + stopNum);
+            let el = myWindow.document.getElementById('page' + stopNum);
 
             myWindow.openChapter('active' + chNum, 'chapter' + chNum);
             el.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
@@ -319,7 +319,7 @@ function popupImage(imgURL) {
     document.getElementById('body3Companion').style.right = "0";
 
 
-    var pictureHolder = document.getElementsByClassName('pictureHolder')[0];
+    let pictureHolder = document.getElementsByClassName('pictureHolder')[0];
     pictureHolder.removeChild(pictureHolder.childNodes[0]);
     pictureHolder.innerHTML = "<img class='pictureZoomUp' src="+imgURL+" />";
 }
